@@ -1,99 +1,102 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# NestJS 待辦事項與使用者管理後端專案
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+![NestJS](https://img.shields.io/badge/NestJS-v10.0.0-E0234E?style=flat&logo=nestjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-v5.1.3-3178C6?style=flat&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-v20.x-339933?style=flat&logo=node.js&logoColor=white)
+![pnpm](https://img.shields.io/badge/pnpm-v9.15.0-F69220?style=flat&logo=pnpm&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-v11.0.0-000000?style=flat&logo=json-web-tokens&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-v11.0.6-85EA2D?style=flat&logo=swagger&logoColor=black)
+![Casbin](https://img.shields.io/badge/Casbin-v5.38.0-4B32C3?style=flat)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 簡介
 
-## Description
+本專案是基於 NestJS 框架開發的後端 API，使用 MongoDB Atlas 作為資料庫，提供使用者註冊、登入、CRUD 操作，並包含 RBAC 權限管理。
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+本練習專案參考：
+[2021 iThome 鐵人賽 NestJS 帶你飛！](https://ithelp.ithome.com.tw/users/20119338/ironman/3880) 系列
+作者：HAO
 
-## Project setup
+## 技術棧
 
-```bash
-$ pnpm install
+- **後端框架**: NestJS
+- **資料庫**: MongoDB Atlas
+- **驗證與授權**: JWT、RBAC
+- **開發工具**: TypeScript、pnpm
+
+## 環境變數設定
+
+請在專案根目錄下建立 `.env` 檔案，並填入以下內容：
+
+```
+MONGO_USERNAME=your_mongodb_username
+MONGO_PASSWORD=your_mongodb_password
+MONGO_RESOURCE=your_mongodb_cluster_url
+
+JWT_SECRET=your_jwt_secret
 ```
 
-## Compile and run the project
+## 安裝與啟動
 
-```bash
-# development
-$ pnpm run start
+### 1. 安裝相依套件
 
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+```sh
+pnpm install
 ```
 
-## Run tests
+### 2. 啟動專案
 
-```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
+```sh
+pnpm start:dev
 ```
 
-## Deployment
+## 專案結構概覽
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ pnpm install -g mau
-$ mau deploy
+```
+.
+├── README.md
+├── package.json
+├── pnpm-lock.yaml
+├── nest-cli.json
+├── rbac
+│   ├── model.conf
+│   └── policy.csv
+├── src
+│   ├── app.module.ts
+│   ├── common  # 共用資源 (常數、列舉、模型等)
+│   ├── configs # 設定檔 (MongoDB、JWT 等)
+│   ├── core    # 核心功能 (守衛、攔截器、RBAC 授權等)
+│   ├── features # 功能模組 (使用者、待辦事項、身份驗證等)
+│   ├── main.ts # 入口文件
+└── tsconfig.json
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## API 端點
 
-## Resources
+本專案使用 **Swagger UI** 自動生成 API 文件，啟動專案後，可透過以下網址存取 API 文件：
 
-Check out a few resources that may come in handy when working with NestJS:
+```
+http://localhost:3000/api
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## RBAC 權限管理
 
-## Support
+本專案使用基於角色的存取控制（RBAC），並透過 **Casbin** 進行權限驗證。
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 權限設定
 
-## Stay in touch
+- **請求定義**: 主體 (sub)、資源 (obj)、動作 (act)
+- **政策定義**: 角色 (sub) 可對資源 (obj) 執行特定動作 (act)
+- **角色繼承**: 角色之間的繼承關係
+- **匹配規則**: 透過 `keyMatch2` 進行資源匹配，允許對應動作存取
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### 角色與權限
+
+- **管理員 (Admin)**: 擁有所有 API 端點的存取權限
+- **管理者 (Manager)**: 可建立與刪除 `todos`
+- **成員 (Member)**: 可讀取、修改單筆 `todos`，並能查詢 `users` 資訊
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+MIT
